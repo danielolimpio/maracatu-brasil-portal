@@ -135,7 +135,7 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
 });
 
 function TermPage() {
-  const g = Route.useLoaderData();
+  const g = Route.useLoaderData() as GlossaryTerm;
   const related = getRelatedTerms(g, 6);
   const relatedArticles = (g.relatedArticleSlugs ?? [])
     .map((s) => articles.find((a) => a.slug === s))
