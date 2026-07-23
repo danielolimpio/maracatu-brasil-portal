@@ -16,25 +16,25 @@ import {
 
 const SITE = "https://maracatu-brasil-portal.lovable.app";
 
-export const Route = createFileRoute("/glossary/")({
+export const Route = createFileRoute("/glossario/")({
   head: () => ({
     meta: [
-      { title: "Glossary — Maracatu Brasil: Benefits, Taxes, Labor & Finance Terms Explained" },
+      { title: "Glossário — Maracatu Brasil: Benefícios, Impostos, Trabalho e Finanças" },
       {
         name: "description",
         content:
-          "The Maracatu Brasil Glossary explains Brazilian benefits, taxes, labor, banking and finance terms in clear English. Search 40+ definitions covering Bolsa Família, INSS, FGTS, Pix, IR and more.",
+          "O Glossário Maracatu Brasil explica em português claro os principais termos de benefícios, impostos, trabalho, bancos e finanças do Brasil. Consulte mais de 90 verbetes com Bolsa Família, INSS, FGTS, Pix, IR e muito mais.",
       },
-      { name: "keywords", content: "Brazilian glossary, INSS, FGTS, Bolsa Família, Pix, Imposto de Renda, benefits, definitions" },
+      { name: "keywords", content: "glossário brasileiro, INSS, FGTS, Bolsa Família, Pix, Imposto de Renda, benefícios, definições, dicionário financeiro" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Glossary — Maracatu Brasil" },
-      { property: "og:description", content: "Comprehensive English glossary of Brazilian benefits, labor, banking, taxes and finance terms." },
-      { property: "og:url", content: `${SITE}/glossary` },
+      { property: "og:title", content: "Glossário — Maracatu Brasil" },
+      { property: "og:description", content: "Glossário completo em português sobre benefícios, trabalho, bancos, impostos e finanças no Brasil." },
+      { property: "og:url", content: `${SITE}/glossario` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Glossary — Maracatu Brasil" },
-      { name: "twitter:description", content: "Search 40+ definitions of Brazilian benefits, taxes and finance terms." },
+      { name: "twitter:title", content: "Glossário — Maracatu Brasil" },
+      { name: "twitter:description", content: "Mais de 90 verbetes com definições claras sobre direitos, benefícios e finanças no Brasil." },
     ],
-    links: [{ rel: "canonical", href: `${SITE}/glossary` }],
+    links: [{ rel: "canonical", href: `${SITE}/glossario` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -45,36 +45,38 @@ export const Route = createFileRoute("/glossary/")({
               "@type": "WebSite",
               name: "Maracatu Brasil",
               url: SITE,
+              inLanguage: "pt-BR",
               potentialAction: {
                 "@type": "SearchAction",
-                target: `${SITE}/glossary?q={search_term_string}`,
+                target: `${SITE}/glossario?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             },
             {
               "@type": "WebPage",
-              name: "Glossary — Maracatu Brasil",
-              url: `${SITE}/glossary`,
-              inLanguage: "en",
+              name: "Glossário — Maracatu Brasil",
+              url: `${SITE}/glossario`,
+              inLanguage: "pt-BR",
               isPartOf: { "@type": "WebSite", name: "Maracatu Brasil", url: SITE },
               speakable: { "@type": "SpeakableSpecification", cssSelector: [".glossary-hero-lead"] },
             },
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-                { "@type": "ListItem", position: 2, name: "Glossary", item: `${SITE}/glossary` },
+                { "@type": "ListItem", position: 1, name: "Início", item: SITE },
+                { "@type": "ListItem", position: 2, name: "Glossário", item: `${SITE}/glossario` },
               ],
             },
             {
               "@type": "DefinedTermSet",
-              name: "Maracatu Brasil Glossary",
-              url: `${SITE}/glossary`,
+              name: "Glossário Maracatu Brasil",
+              url: `${SITE}/glossario`,
+              inLanguage: "pt-BR",
               hasDefinedTerm: glossaryTerms.map((g) => ({
                 "@type": "DefinedTerm",
                 name: g.term,
                 url: `${SITE}${glossaryUrl(g.slug)}`,
-                inDefinedTermSet: `${SITE}/glossary`,
+                inDefinedTermSet: `${SITE}/glossario`,
               })),
             },
           ],
@@ -123,22 +125,22 @@ function GlossaryHub() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-brand-green)] via-[color:var(--color-brand-green-dark)] to-[color:var(--color-brand-blue-dark)] text-white">
         <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_20%_10%,white_1px,transparent_1px),radial-gradient(circle_at_80%_80%,white_1px,transparent_1px)] [background-size:36px_36px]" aria-hidden />
         <div className="container-mb relative py-14 md:py-20">
-          <nav aria-label="Breadcrumb" className="mb-4 text-sm text-white/80">
+          <nav aria-label="Trilha de navegação" className="mb-4 text-sm text-white/80">
             <ol className="flex items-center gap-2">
-              <li><Link to="/" className="inline-flex items-center gap-1 hover:text-white"><Home size={14} /> Home</Link></li>
+              <li><Link to="/" className="inline-flex items-center gap-1 hover:text-white"><Home size={14} /> Início</Link></li>
               <li aria-hidden><ChevronRight size={14} /></li>
-              <li aria-current="page" className="text-white font-semibold">Glossary</li>
+              <li aria-current="page" className="text-white font-semibold">Glossário</li>
             </ol>
           </nav>
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider backdrop-blur">
-              <BookOpen size={14} /> Premium Knowledge Hub
+              <BookOpen size={14} /> Central de Conhecimento Premium
             </span>
             <h1 className="mt-4 text-4xl md:text-6xl font-black leading-tight tracking-tight">
-              The Maracatu Brasil <span className="text-[color:var(--color-brand-gray)]">Glossary</span>
+              Glossário <span className="text-[color:var(--color-brand-gray)]">Maracatu Brasil</span>
             </h1>
             <p className="glossary-hero-lead mt-4 text-lg md:text-xl text-white/90 max-w-2xl">
-              Clear, authoritative English definitions of Brazilian benefits, labor, taxes, banking and finance terms — built to help you understand your rights and make better decisions.
+              Definições claras e confiáveis, em português, sobre benefícios, trabalho, impostos, bancos e finanças no Brasil — feitas para você entender seus direitos e tomar decisões melhores.
             </p>
 
             <div className="mt-8 flex items-center rounded-xl bg-white shadow-2xl ring-1 ring-black/5 focus-within:ring-2 focus-within:ring-white/70">
@@ -147,17 +149,17 @@ function GlossaryHub() {
                 type="search"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                placeholder="Search a term — try “Bolsa Família”, “Pix”, “FGTS”..."
-                aria-label="Search glossary"
+                placeholder="Busque um termo — ex.: “Bolsa Família”, “Pix”, “FGTS”..."
+                aria-label="Buscar no glossário"
                 className="w-full bg-transparent px-3 py-4 text-base text-foreground outline-none placeholder:text-muted-foreground"
               />
               <div className="hidden md:block pr-4 text-xs text-muted-foreground">
-                {glossaryTerms.length} entries
+                {glossaryTerms.length} verbetes
               </div>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
-              <span className="text-white/70 mr-1">Popular:</span>
+              <span className="text-white/70 mr-1">Populares:</span>
               {popular.slice(0, 6).map((p) => (
                 <Link
                   key={p.slug}
@@ -175,12 +177,12 @@ function GlossaryHub() {
       <div className="container-mb py-10 md:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_280px] gap-8">
           {/* Sidebar A–Z */}
-          <aside className="lg:sticky lg:top-4 lg:self-start" aria-label="Alphabetical index">
+          <aside className="lg:sticky lg:top-4 lg:self-start" aria-label="Índice alfabético">
             <div className="rounded-xl border border-border bg-card p-5">
               <h2 className="text-sm font-black uppercase tracking-wider text-[color:var(--color-brand-green)]">
-                Index A–Z
+                Índice A–Z
               </h2>
-              <p className="mt-1 text-xs text-muted-foreground">Filter by first letter</p>
+              <p className="mt-1 text-xs text-muted-foreground">Filtrar pela primeira letra</p>
               <div className="mt-4 grid grid-cols-6 lg:grid-cols-5 gap-1.5">
                 <button
                   onClick={() => setLetter("all")}
@@ -190,7 +192,7 @@ function GlossaryHub() {
                       : "bg-muted hover:bg-muted/70"
                   }`}
                 >
-                  All letters
+                  Todas as letras
                 </button>
                 {alphabet.map((L) => {
                   const has = glossaryLetters.includes(L);
@@ -200,7 +202,7 @@ function GlossaryHub() {
                       key={L}
                       onClick={() => has && setLetter(L)}
                       disabled={!has}
-                      aria-label={`Filter by letter ${L}`}
+                      aria-label={`Filtrar pela letra ${L}`}
                       className={`aspect-square flex items-center justify-center rounded-md text-xs font-bold transition-colors ${
                         active
                           ? "bg-[color:var(--color-brand-blue)] text-white"
@@ -218,7 +220,7 @@ function GlossaryHub() {
 
             <div className="mt-6 rounded-xl border border-border bg-card p-5">
               <h2 className="text-sm font-black uppercase tracking-wider text-[color:var(--color-brand-green)]">
-                Categories
+                Categorias
               </h2>
               <ul className="mt-3 space-y-1.5">
                 <li>
@@ -228,7 +230,7 @@ function GlossaryHub() {
                       cat === "all" ? "bg-[color:var(--color-brand-green)] text-white" : "hover:bg-muted"
                     }`}
                   >
-                    All categories
+                    Todas as categorias
                   </button>
                 </li>
                 {glossaryCategories.map((c) => (
@@ -253,7 +255,7 @@ function GlossaryHub() {
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               <div className="rounded-xl border border-border bg-gradient-to-br from-[color:var(--color-brand-green)]/5 to-transparent p-5">
                 <div className="flex items-center gap-2 text-[color:var(--color-brand-green)] font-black uppercase text-xs tracking-wider">
-                  <TrendingUp size={16} /> Trending now
+                  <TrendingUp size={16} /> Em alta agora
                 </div>
                 <ul className="mt-3 space-y-2">
                   {trending.map((t) => (
@@ -268,7 +270,7 @@ function GlossaryHub() {
               </div>
               <div className="rounded-xl border border-border bg-gradient-to-br from-[color:var(--color-brand-blue)]/5 to-transparent p-5">
                 <div className="flex items-center gap-2 text-[color:var(--color-brand-blue)] font-black uppercase text-xs tracking-wider">
-                  <Clock size={16} /> Recently updated
+                  <Clock size={16} /> Atualizados recentemente
                 </div>
                 <ul className="mt-3 space-y-2">
                   {recent.map((t) => (
@@ -285,16 +287,16 @@ function GlossaryHub() {
 
             <div className="flex items-baseline justify-between mb-4">
               <h2 className="section-title !mb-0 !pb-0 !border-0">
-                All terms
+                Todos os termos
                 <span className="ml-2 text-xs font-bold text-muted-foreground">
-                  {filtered.length} of {glossaryTerms.length}
+                  {filtered.length} de {glossaryTerms.length}
                 </span>
               </h2>
             </div>
 
             {grouped.length === 0 && (
               <div className="rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
-                No terms match your filters.
+                Nenhum termo encontrado com os filtros atuais.
               </div>
             )}
 
@@ -320,7 +322,7 @@ function GlossaryHub() {
                             </h3>
                             {g.trending && (
                               <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-brand-green)]/10 text-[color:var(--color-brand-green)] px-2 py-0.5 text-[10px] font-bold uppercase">
-                                <Sparkles size={10} /> Hot
+                                <Sparkles size={10} /> Em alta
                               </span>
                             )}
                           </div>
@@ -340,10 +342,10 @@ function GlossaryHub() {
           </main>
 
           {/* Right rail: Popular */}
-          <aside className="lg:sticky lg:top-4 lg:self-start" aria-label="Popular terms">
+          <aside className="lg:sticky lg:top-4 lg:self-start" aria-label="Termos populares">
             <div className="rounded-xl border border-border bg-card p-5">
               <h2 className="text-sm font-black uppercase tracking-wider text-[color:var(--color-brand-green)]">
-                Most popular
+                Mais populares
               </h2>
               <ol className="mt-3 space-y-3">
                 {popular.map((p, i) => (
@@ -363,15 +365,15 @@ function GlossaryHub() {
             </div>
 
             <div className="mt-6 rounded-xl border border-border bg-gradient-to-br from-[color:var(--color-brand-blue)] to-[color:var(--color-brand-blue-dark)] p-6 text-white">
-              <h3 className="text-lg font-black">Continue learning</h3>
+              <h3 className="text-lg font-black">Continue explorando</h3>
               <p className="mt-2 text-sm text-white/85">
-                Explore in-depth guides on Brazilian benefits, taxes and rights.
+                Confira guias completos sobre benefícios, impostos e direitos no Brasil.
               </p>
               <Link
                 to="/"
                 className="mt-4 inline-flex items-center gap-2 rounded-md bg-white text-[color:var(--color-brand-blue-dark)] px-4 py-2 text-sm font-bold hover:bg-white/90"
               >
-                Read latest articles <ChevronRight size={14} />
+                Ver últimas matérias <ChevronRight size={14} />
               </Link>
             </div>
           </aside>
