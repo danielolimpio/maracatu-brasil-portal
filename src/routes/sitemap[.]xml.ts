@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { articles, categories } from "@/data/articles";
+import { glossaryTerms, glossaryUrl } from "@/data/glossary";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://maracatu-brasil-portal.lovable.app";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const staticPaths = [
           { path: "/", changefreq: "daily", priority: "1.0" },
+          { path: "/glossary", changefreq: "daily", priority: "0.9" },
           { path: "/sobre", changefreq: "monthly", priority: "0.5" },
           { path: "/contato", changefreq: "monthly", priority: "0.5" },
           { path: "/politica-de-privacidade", changefreq: "yearly", priority: "0.3" },
@@ -26,8 +27,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           changefreq: "weekly" as const,
           priority: "0.7",
         }));
+        const glossaryPaths = glossaryTerms.map((g) => ({
+          path: glossaryUrl(g.slug),
+          changefreq: "monthly" as const,
+          priority: "0.75",
+        }));
 
-        const entries = [...staticPaths, ...catPaths, ...articlePaths];
+        const entries = [...staticPaths, ...catPaths, ...articlePaths, ...glossaryPaths];
 
         const urls = entries.map(
           (e) =>
