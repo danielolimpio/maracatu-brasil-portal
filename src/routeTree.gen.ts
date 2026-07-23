@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GlossaryIndexRouteImport } from './routes/glossary.index'
-import { Route as GlossaryWhatIsTermRouteImport } from './routes/glossary.what-is-$term'
+import { Route as GlossarioIndexRouteImport } from './routes/glossario.index'
+import { Route as GlossarioOQueETermRouteImport } from './routes/glossario.o-que-e-$term'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -24,54 +24,54 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GlossaryIndexRoute = GlossaryIndexRouteImport.update({
-  id: '/glossary/',
-  path: '/glossary/',
+const GlossarioIndexRoute = GlossarioIndexRouteImport.update({
+  id: '/glossario/',
+  path: '/glossario/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GlossaryWhatIsTermRoute = GlossaryWhatIsTermRouteImport.update({
-  id: '/glossary/what-is-$term',
-  path: '/glossary/what-is-$term',
+const GlossarioOQueETermRoute = GlossarioOQueETermRouteImport.update({
+  id: '/glossario/o-que-e-$term',
+  path: '/glossario/o-que-e-$term',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
-  '/glossary/': typeof GlossaryIndexRoute
+  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
-  '/glossary': typeof GlossaryIndexRoute
+  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario': typeof GlossarioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
-  '/glossary/': typeof GlossaryIndexRoute
+  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/glossary/what-is-$term' | '/glossary/'
+  fullPaths: '/' | '/sitemap.xml' | '/glossario/o-que-e-$term' | '/glossario/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/glossary/what-is-$term' | '/glossary'
+  to: '/' | '/sitemap.xml' | '/glossario/o-que-e-$term' | '/glossario'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
-    | '/glossary/what-is-$term'
-    | '/glossary/'
+    | '/glossario/o-que-e-$term'
+    | '/glossario/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  GlossaryWhatIsTermRoute: typeof GlossaryWhatIsTermRoute
-  GlossaryIndexRoute: typeof GlossaryIndexRoute
+  GlossarioOQueETermRoute: typeof GlossarioOQueETermRoute
+  GlossarioIndexRoute: typeof GlossarioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -90,18 +90,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/glossary/': {
-      id: '/glossary/'
-      path: '/glossary'
-      fullPath: '/glossary/'
-      preLoaderRoute: typeof GlossaryIndexRouteImport
+    '/glossario/': {
+      id: '/glossario/'
+      path: '/glossario'
+      fullPath: '/glossario/'
+      preLoaderRoute: typeof GlossarioIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/glossary/what-is-$term': {
-      id: '/glossary/what-is-$term'
-      path: '/glossary/what-is-$term'
-      fullPath: '/glossary/what-is-$term'
-      preLoaderRoute: typeof GlossaryWhatIsTermRouteImport
+    '/glossario/o-que-e-$term': {
+      id: '/glossario/o-que-e-$term'
+      path: '/glossario/o-que-e-$term'
+      fullPath: '/glossario/o-que-e-$term'
+      preLoaderRoute: typeof GlossarioOQueETermRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -110,8 +110,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  GlossaryWhatIsTermRoute: GlossaryWhatIsTermRoute,
-  GlossaryIndexRoute: GlossaryIndexRoute,
+  GlossarioOQueETermRoute: GlossarioOQueETermRoute,
+  GlossarioIndexRoute: GlossarioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
