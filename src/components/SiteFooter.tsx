@@ -54,6 +54,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm">
             <li><a href="/sobre" className="hover:text-white">Sobre nós</a></li>
             <li><a href="/contato" className="hover:text-white">Contato</a></li>
+            <li><a href="/glossary" className="hover:text-white font-semibold text-white">Glossary</a></li>
             <li><a href="/politica-de-privacidade" className="hover:text-white">Política de Privacidade</a></li>
             <li><a href="/termos-de-uso" className="hover:text-white">Termos de Uso</a></li>
             <li><a href="/politica-de-cookies" className="hover:text-white">Política de Cookies</a></li>
