@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GlossarioIndexRouteImport } from './routes/glossario.index'
-import { Route as GlossarioOQueETermRouteImport } from './routes/glossario.o-que-e-$term'
+import { Route as GlossarioOQueEChar123termChar125RouteImport } from './routes/glossario.o-que-e-{$term}'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -29,48 +29,49 @@ const GlossarioIndexRoute = GlossarioIndexRouteImport.update({
   path: '/glossario/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GlossarioOQueETermRoute = GlossarioOQueETermRouteImport.update({
-  id: '/glossario/o-que-e-$term',
-  path: '/glossario/o-que-e-$term',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const GlossarioOQueEChar123termChar125Route =
+  GlossarioOQueEChar123termChar125RouteImport.update({
+    id: '/glossario/o-que-e-{$term}',
+    path: '/glossario/o-que-e-{$term}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/glossario': typeof GlossarioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/glossario/o-que-e-$term': typeof GlossarioOQueETermRoute
+  '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/glossario/o-que-e-$term' | '/glossario/'
+  fullPaths: '/' | '/sitemap.xml' | '/glossario/o-que-e-{$term}' | '/glossario/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/glossario/o-que-e-$term' | '/glossario'
+  to: '/' | '/sitemap.xml' | '/glossario/o-que-e-{$term}' | '/glossario'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
-    | '/glossario/o-que-e-$term'
+    | '/glossario/o-que-e-{$term}'
     | '/glossario/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  GlossarioOQueETermRoute: typeof GlossarioOQueETermRoute
+  GlossarioOQueEChar123termChar125Route: typeof GlossarioOQueEChar123termChar125Route
   GlossarioIndexRoute: typeof GlossarioIndexRoute
 }
 
@@ -97,11 +98,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossarioIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/glossario/o-que-e-$term': {
-      id: '/glossario/o-que-e-$term'
-      path: '/glossario/o-que-e-$term'
-      fullPath: '/glossario/o-que-e-$term'
-      preLoaderRoute: typeof GlossarioOQueETermRouteImport
+    '/glossario/o-que-e-{$term}': {
+      id: '/glossario/o-que-e-{$term}'
+      path: '/glossario/o-que-e-{$term}'
+      fullPath: '/glossario/o-que-e-{$term}'
+      preLoaderRoute: typeof GlossarioOQueEChar123termChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -110,9 +111,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  GlossarioOQueETermRoute: GlossarioOQueETermRoute,
+  GlossarioOQueEChar123termChar125Route: GlossarioOQueEChar123termChar125Route,
   GlossarioIndexRoute: GlossarioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
