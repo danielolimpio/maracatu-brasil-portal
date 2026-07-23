@@ -30,7 +30,7 @@ import { articles } from "@/data/articles";
 
 const SITE = "https://maracatu-brasil-portal.lovable.app";
 
-export const Route = createFileRoute("/glossary/what-is-$term")({
+export const Route = createFileRoute("/glossario/o-que-e-$term")({
   loader: ({ params }) => {
     const term = getGlossaryTermBySlug(params.term);
     if (!term) throw notFound();
@@ -40,25 +40,26 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Term not found — Maracatu Brasil Glossary" },
+          { title: "Termo não encontrado — Glossário Maracatu Brasil" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const g = loaderData;
     const url = `${SITE}${glossaryUrl(params.term)}`;
-    const title = `What is ${g.term}? Definition, Examples & Key Facts | Maracatu Brasil`;
+    const title = `O que é ${g.term}? Definição, Exemplos e Como Funciona | Maracatu Brasil`;
     const desc = g.shortAnswer.slice(0, 158);
     return {
       meta: [
         { title },
         { name: "description", content: desc },
-        { name: "keywords", content: [g.term, ...(g.synonyms ?? []), g.category, "Brazil", "definition"].join(", ") },
+        { name: "keywords", content: [g.term, ...(g.synonyms ?? []), g.category, "Brasil", "o que é", "significado", "como funciona"].join(", ") },
         { name: "author", content: g.author },
         { property: "og:type", content: "article" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: url },
+        { property: "og:locale", content: "pt_BR" },
         { property: "article:author", content: g.author },
         { property: "article:modified_time", content: g.lastUpdated },
         { property: "article:section", content: g.category },
@@ -79,16 +80,17 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
                 name: g.term,
                 alternateName: g.synonyms,
                 description: g.shortAnswer,
-                inDefinedTermSet: `${SITE}/glossary`,
+                inDefinedTermSet: `${SITE}/glossario`,
+                inLanguage: "pt-BR",
                 url,
               },
               {
                 "@type": "Article",
-                headline: `What is ${g.term}?`,
+                headline: `O que é ${g.term}?`,
                 description: desc,
                 url,
                 mainEntityOfPage: url,
-                inLanguage: "en",
+                inLanguage: "pt-BR",
                 dateModified: g.lastUpdated,
                 author: { "@type": "Person", name: g.author },
                 publisher: {
@@ -102,6 +104,7 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
               },
               {
                 "@type": "FAQPage",
+                inLanguage: "pt-BR",
                 mainEntity: g.faqs.map((f) => ({
                   "@type": "Question",
                   name: f.q,
@@ -111,8 +114,8 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-                  { "@type": "ListItem", position: 2, name: "Glossary", item: `${SITE}/glossary` },
+                  { "@type": "ListItem", position: 1, name: "Início", item: SITE },
+                  { "@type": "ListItem", position: 2, name: "Glossário", item: `${SITE}/glossario` },
                   { "@type": "ListItem", position: 3, name: g.term, item: url },
                 ],
               },
@@ -123,12 +126,21 @@ export const Route = createFileRoute("/glossary/what-is-$term")({
     };
   },
   component: TermPage,
+  errorComponent: ({ error }) => (
+    <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="text-center px-4">
+        <h1 className="text-3xl font-black">Ocorreu um erro</h1>
+        <p className="mt-2 text-muted-foreground">{error.message}</p>
+        <Link to="/glossario" className="mt-4 inline-block text-[color:var(--color-brand-green)] font-bold">← Voltar ao glossário</Link>
+      </div>
+    </div>
+  ),
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-3xl font-black">Term not found</h1>
-        <p className="mt-2 text-muted-foreground">This glossary entry doesn't exist.</p>
-        <Link to="/glossary" className="mt-4 inline-block text-[color:var(--color-brand-green)] font-bold">← Back to glossary</Link>
+      <div className="text-center px-4">
+        <h1 className="text-3xl font-black">Termo não encontrado</h1>
+        <p className="mt-2 text-muted-foreground">Este verbete do glossário não existe.</p>
+        <Link to="/glossario" className="mt-4 inline-block text-[color:var(--color-brand-green)] font-bold">← Voltar ao glossário</Link>
       </div>
     </div>
   ),
@@ -141,19 +153,18 @@ function TermPage() {
     .map((s) => articles.find((a) => a.slug === s))
     .filter((a): a is (typeof articles)[number] => Boolean(a));
 
-  // Table of contents anchors
   const toc = [
-    { id: "definition", label: "Definition" },
-    { id: "key-facts", label: "Key Facts" },
-    { id: "quick-summary", label: "Quick Summary" },
-    { id: "example", label: "Practical Example" },
-    { id: "why", label: "Why It Matters" },
-    { id: "how", label: "How It Works" },
-    { id: "advantages", label: "Advantages" },
-    ...(g.disadvantages ? [{ id: "disadvantages", label: "Disadvantages" }] : []),
-    { id: "mistakes", label: "Common Mistakes" },
-    { id: "faq", label: "FAQ" },
-    { id: "related", label: "Related Terms" },
+    { id: "definition", label: "Definição" },
+    { id: "key-facts", label: "Principais fatos" },
+    { id: "quick-summary", label: "Resumo rápido" },
+    { id: "example", label: "Exemplo prático" },
+    { id: "why", label: "Por que importa" },
+    { id: "how", label: "Como funciona" },
+    { id: "advantages", label: "Vantagens" },
+    ...(g.disadvantages ? [{ id: "disadvantages", label: "Desvantagens" }] : []),
+    { id: "mistakes", label: "Erros comuns" },
+    { id: "faq", label: "Perguntas frequentes" },
+    { id: "related", label: "Termos relacionados" },
   ];
 
   return (
@@ -161,12 +172,12 @@ function TermPage() {
       <SiteHeader />
 
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="border-b border-border bg-muted/30">
+      <nav aria-label="Trilha de navegação" className="border-b border-border bg-muted/30">
         <div className="container-mb py-3 text-xs">
           <ol className="flex items-center gap-1.5 text-muted-foreground flex-wrap">
-            <li><Link to="/" className="inline-flex items-center gap-1 hover:text-foreground"><Home size={12} /> Home</Link></li>
+            <li><Link to="/" className="inline-flex items-center gap-1 hover:text-foreground"><Home size={12} /> Início</Link></li>
             <li aria-hidden><ChevronRight size={12} /></li>
-            <li><Link to="/glossary" className="hover:text-foreground">Glossary</Link></li>
+            <li><Link to="/glossario" className="hover:text-foreground">Glossário</Link></li>
             <li aria-hidden><ChevronRight size={12} /></li>
             <li aria-current="page" className="text-foreground font-semibold">{g.term}</li>
           </ol>
@@ -183,29 +194,29 @@ function TermPage() {
                 </span>
                 {g.trending && (
                   <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-brand-blue)]/10 text-[color:var(--color-brand-blue)] px-3 py-1">
-                    <Sparkles size={12} /> Trending
+                    <Sparkles size={12} /> Em alta
                   </span>
                 )}
-                <span className="text-muted-foreground">Glossary Entry</span>
+                <span className="text-muted-foreground">Verbete do glossário</span>
               </div>
               <h1 className="mt-4 text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">
                 {g.term}
               </h1>
               {g.synonyms && g.synonyms.length > 0 && (
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Also known as: <span className="font-medium text-foreground">{g.synonyms.join(", ")}</span>
+                  Também conhecido como: <span className="font-medium text-foreground">{g.synonyms.join(", ")}</span>
                 </p>
               )}
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5"><User size={14} /> By <strong className="text-foreground">{g.author}</strong></span>
-                <span className="inline-flex items-center gap-1.5"><Calendar size={14} /> Updated {g.lastUpdated}</span>
-                <span className="inline-flex items-center gap-1.5"><Clock size={14} /> {g.readingTime} read</span>
+                <span className="inline-flex items-center gap-1.5"><User size={14} /> Por <strong className="text-foreground">{g.author}</strong></span>
+                <span className="inline-flex items-center gap-1.5"><Calendar size={14} /> Atualizado em {g.lastUpdated}</span>
+                <span className="inline-flex items-center gap-1.5"><Clock size={14} /> Leitura de {g.readingTime}</span>
               </div>
             </header>
 
             {/* Direct answer */}
             <section aria-labelledby="q-title" className="mb-10">
-              <h2 id="q-title" className="text-2xl md:text-3xl font-black">What is {g.term}?</h2>
+              <h2 id="q-title" className="text-2xl md:text-3xl font-black">O que é {g.term}?</h2>
               <p className="direct-answer mt-4 text-lg leading-relaxed rounded-2xl border-l-4 border-[color:var(--color-brand-green)] bg-[color:var(--color-brand-green)]/5 p-6 text-foreground">
                 {g.shortAnswer}
               </p>
@@ -214,14 +225,14 @@ function TermPage() {
             {/* Definition */}
             <section id="definition" className="mb-10 scroll-mt-24">
               <h2 className="text-2xl font-black flex items-center gap-2">
-                <BookOpen size={22} className="text-[color:var(--color-brand-green)]" /> Definition
+                <BookOpen size={22} className="text-[color:var(--color-brand-green)]" /> Definição
               </h2>
               <p className="mt-3 text-base leading-relaxed text-foreground/90">{g.definition}</p>
             </section>
 
             {/* Key Facts */}
             <section id="key-facts" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">Key Facts</h2>
+              <h2 className="text-2xl font-black">Principais fatos</h2>
               <ul className="mt-4 grid sm:grid-cols-2 gap-3">
                 {g.keyFacts.map((f, i) => (
                   <li key={i} className="flex gap-3 rounded-xl border border-border bg-card p-4">
@@ -238,7 +249,7 @@ function TermPage() {
             <section id="quick-summary" className="mb-10 scroll-mt-24">
               <div className="rounded-2xl bg-gradient-to-br from-[color:var(--color-brand-blue)] to-[color:var(--color-brand-blue-dark)] p-6 text-white">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white/80">
-                  <Lightbulb size={14} /> Quick Summary
+                  <Lightbulb size={14} /> Resumo rápido
                 </div>
                 <p className="mt-2 text-lg leading-relaxed">
                   {g.term} — {g.shortAnswer.split(". ")[0]}.
@@ -248,7 +259,7 @@ function TermPage() {
 
             {/* Practical Example */}
             <section id="example" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">Practical Example</h2>
+              <h2 className="text-2xl font-black">Exemplo prático</h2>
               <blockquote className="mt-3 rounded-xl border border-border bg-muted/40 p-6 text-base italic leading-relaxed">
                 “{g.practicalExample}”
               </blockquote>
@@ -256,13 +267,13 @@ function TermPage() {
 
             {/* Why It Matters */}
             <section id="why" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">Why It Matters</h2>
+              <h2 className="text-2xl font-black">Por que importa</h2>
               <p className="mt-3 text-base leading-relaxed">{g.whyItMatters}</p>
             </section>
 
             {/* How It Works */}
             <section id="how" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">How It Works</h2>
+              <h2 className="text-2xl font-black">Como funciona</h2>
               <ol className="mt-4 space-y-3">
                 {g.howItWorks.map((s, i) => (
                   <li key={i} className="flex gap-4">
@@ -280,7 +291,7 @@ function TermPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-[color:var(--color-brand-green)]/30 bg-[color:var(--color-brand-green)]/5 p-5">
                   <h2 className="flex items-center gap-2 text-lg font-black text-[color:var(--color-brand-green-dark)]">
-                    <CheckCircle2 size={18} /> Advantages
+                    <CheckCircle2 size={18} /> Vantagens
                   </h2>
                   <ul className="mt-3 space-y-2 text-sm">
                     {g.advantages.map((a, i) => (
@@ -291,7 +302,7 @@ function TermPage() {
                 {g.disadvantages && (
                   <div id="disadvantages" className="rounded-xl border border-destructive/30 bg-destructive/5 p-5">
                     <h2 className="flex items-center gap-2 text-lg font-black text-destructive">
-                      <XCircle size={18} /> Disadvantages
+                      <XCircle size={18} /> Desvantagens
                     </h2>
                     <ul className="mt-3 space-y-2 text-sm">
                       {g.disadvantages.map((a, i) => (
@@ -306,7 +317,7 @@ function TermPage() {
             {/* Common Mistakes */}
             <section id="mistakes" className="mb-10 scroll-mt-24">
               <h2 className="text-2xl font-black flex items-center gap-2">
-                <AlertTriangle size={22} className="text-amber-500" /> Common Mistakes
+                <AlertTriangle size={22} className="text-amber-500" /> Erros comuns
               </h2>
               <ul className="mt-4 space-y-2">
                 {g.commonMistakes.map((m, i) => (
@@ -319,7 +330,7 @@ function TermPage() {
 
             {/* FAQ */}
             <section id="faq" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-black">Perguntas frequentes</h2>
               <div className="mt-4 divide-y divide-border rounded-xl border border-border">
                 {g.faqs.map((f, i) => (
                   <FaqItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
@@ -329,7 +340,7 @@ function TermPage() {
 
             {/* Related terms */}
             <section id="related" className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black">Related Terms</h2>
+              <h2 className="text-2xl font-black">Termos relacionados</h2>
               <div className="mt-4 grid sm:grid-cols-2 gap-3">
                 {related.map((r) => (
                   <Link
@@ -352,9 +363,9 @@ function TermPage() {
               <section className="mb-10">
                 <div className="rounded-2xl border border-border bg-gradient-to-br from-[color:var(--color-brand-blue)]/5 to-transparent p-6">
                   <div className="flex items-center gap-2 text-[color:var(--color-brand-blue)] font-black uppercase text-xs tracking-wider">
-                    <BookOpen size={14} /> Deep Dive · Recommended Articles
+                    <BookOpen size={14} /> Aprofunde-se · Matérias recomendadas
                   </div>
-                  <h2 className="mt-2 text-2xl font-black">Continue learning about {g.term}</h2>
+                  <h2 className="mt-2 text-2xl font-black">Continue aprendendo sobre {g.term}</h2>
                   <ul className="mt-4 grid sm:grid-cols-2 gap-4">
                     {relatedArticles.map((a) => (
                       <li key={a.slug}>
@@ -387,7 +398,7 @@ function TermPage() {
               <section className="mb-10 grid md:grid-cols-2 gap-4">
                 {g.furtherReading && g.furtherReading.length > 0 && (
                   <div className="rounded-xl border border-border bg-card p-5">
-                    <h2 className="text-lg font-black">Further Reading</h2>
+                    <h2 className="text-lg font-black">Leituras complementares</h2>
                     <ul className="mt-3 space-y-2 text-sm">
                       {g.furtherReading.map((r, i) => (
                         <li key={i}>
@@ -401,7 +412,7 @@ function TermPage() {
                 )}
                 {g.references && g.references.length > 0 && (
                   <div className="rounded-xl border border-border bg-card p-5">
-                    <h2 className="text-lg font-black">References</h2>
+                    <h2 className="text-lg font-black">Referências oficiais</h2>
                     <ul className="mt-3 space-y-2 text-sm">
                       {g.references.map((r, i) => (
                         <li key={i}>
@@ -419,9 +430,9 @@ function TermPage() {
             {/* Footer meta */}
             <footer className="mt-12 rounded-xl bg-muted/40 p-5 text-sm text-muted-foreground">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>Last updated on <strong className="text-foreground">{g.lastUpdated}</strong> by <strong className="text-foreground">{g.author}</strong>.</div>
-                <Link to="/glossary" className="font-bold text-[color:var(--color-brand-green)]">
-                  ← Back to glossary
+                <div>Atualizado em <strong className="text-foreground">{g.lastUpdated}</strong> por <strong className="text-foreground">{g.author}</strong>.</div>
+                <Link to="/glossario" className="font-bold text-[color:var(--color-brand-green)]">
+                  ← Voltar ao glossário
                 </Link>
               </div>
             </footer>
@@ -429,9 +440,9 @@ function TermPage() {
 
           {/* Right rail */}
           <aside className="lg:sticky lg:top-4 lg:self-start space-y-6">
-            <nav aria-label="On this page" className="rounded-xl border border-border bg-card p-5">
+            <nav aria-label="Nesta página" className="rounded-xl border border-border bg-card p-5">
               <h2 className="text-xs font-black uppercase tracking-wider text-[color:var(--color-brand-green)]">
-                On this page
+                Nesta página
               </h2>
               <ul className="mt-3 space-y-1.5 text-sm">
                 {toc.map((t) => (
@@ -446,7 +457,7 @@ function TermPage() {
 
             <div className="rounded-xl border border-border bg-card p-5">
               <h2 className="text-xs font-black uppercase tracking-wider text-[color:var(--color-brand-blue)]">
-                More from the glossary
+                Mais do glossário
               </h2>
               <ul className="mt-3 space-y-2 text-sm">
                 {glossaryTerms
