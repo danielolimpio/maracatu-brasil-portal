@@ -30,7 +30,7 @@ import { articles } from "@/data/articles";
 
 const SITE = "https://maracatu-brasil-portal.lovable.app";
 
-export const Route = createFileRoute("/glossario/o-que-e-$term")({
+export const Route = createFileRoute("/glossario/o-que-e-{$term}")({
   loader: ({ params }) => {
     const term = getGlossaryTermBySlug(params.term);
     if (!term) throw notFound();
