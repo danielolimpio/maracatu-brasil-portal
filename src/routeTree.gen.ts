@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GlossaryIndexRouteImport } from './routes/glossary.index'
+import { Route as GlossaryWhatIsTermRouteImport } from './routes/glossary.what-is-$term'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +24,54 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GlossaryIndexRoute = GlossaryIndexRouteImport.update({
+  id: '/glossary/',
+  path: '/glossary/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryWhatIsTermRoute = GlossaryWhatIsTermRouteImport.update({
+  id: '/glossary/what-is-$term',
+  path: '/glossary/what-is-$term',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
+  '/glossary/': typeof GlossaryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
+  '/glossary': typeof GlossaryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/glossary/what-is-$term': typeof GlossaryWhatIsTermRoute
+  '/glossary/': typeof GlossaryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths: '/' | '/sitemap.xml' | '/glossary/what-is-$term' | '/glossary/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to: '/' | '/sitemap.xml' | '/glossary/what-is-$term' | '/glossary'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/glossary/what-is-$term'
+    | '/glossary/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  GlossaryWhatIsTermRoute: typeof GlossaryWhatIsTermRoute
+  GlossaryIndexRoute: typeof GlossaryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +90,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/glossary/': {
+      id: '/glossary/'
+      path: '/glossary'
+      fullPath: '/glossary/'
+      preLoaderRoute: typeof GlossaryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary/what-is-$term': {
+      id: '/glossary/what-is-$term'
+      path: '/glossary/what-is-$term'
+      fullPath: '/glossary/what-is-$term'
+      preLoaderRoute: typeof GlossaryWhatIsTermRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  GlossaryWhatIsTermRoute: GlossaryWhatIsTermRoute,
+  GlossaryIndexRoute: GlossaryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
