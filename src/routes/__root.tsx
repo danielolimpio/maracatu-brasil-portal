@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro.",
+          "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro. Informação clara e confiável.",
       },
       { name: "author", content: "Maracatu Brasil" },
       { name: "theme-color", content: "#0A7A3D" },
@@ -89,6 +89,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Maracatu Brasil — Benefícios, Direitos, Economia e Serviços" },
+      { name: "twitter:title", content: "Maracatu Brasil — Benefícios, Direitos, Economia e Serviços" },
+      { property: "og:description", content: "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro. Informação clara e confiável." },
+      { name: "twitter:description", content: "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro. Informação clara e confiável." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e189cdec-e45d-49ef-889f-160c9cdf3ec4/id-preview-8f53b8eb--74f6d513-d61c-4661-b8f8-d7238afe66b7.lovable.app-1784812430186.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e189cdec-e45d-49ef-889f-160c9cdf3ec4/id-preview-8f53b8eb--74f6d513-d61c-4661-b8f8-d7238afe66b7.lovable.app-1784812430186.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

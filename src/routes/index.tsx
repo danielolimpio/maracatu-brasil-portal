@@ -27,11 +27,11 @@ export const Route = createFileRoute("/")({
         content:
           "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro. Informação clara e confiável.",
       },
-      { property: "og:title", content: "Maracatu Brasil — Portal do Brasileiro" },
+      { property: "og:title", content: "Maracatu Brasil — Benefícios, Direitos, Economia e Serviços" },
       {
         property: "og:description",
         content:
-          "Benefícios, Direitos, Economia e Serviços para o Brasileiro. Notícias diárias sobre INSS, Bolsa Família, FGTS, concursos e mais.",
+          "Portal Maracatu Brasil: notícias e guias sobre Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos e direitos do brasileiro. Informação clara e confiável.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
