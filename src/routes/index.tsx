@@ -99,6 +99,14 @@ function HomePage() {
 
         {/* Hero grid */}
         <section className="container-mb py-8">
+          <div className="mb-6">
+            <h1 className="text-2xl md:text-3xl font-black leading-tight text-foreground">
+              Maracatu Brasil — Notícias e Guias sobre Benefícios e Direitos
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+              Portal de notícias e guias sobre benefícios, direitos, economia e serviços para o brasileiro.
+            </p>
+          </div>
           <div className="grid gap-4 lg:grid-cols-12">
             {/* Left main */}
             <div className="lg:col-span-4">

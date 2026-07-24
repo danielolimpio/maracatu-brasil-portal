@@ -17,16 +17,16 @@ export function SiteFooter() {
             brasileiro. Informação clara, gratuita e confiável.
           </p>
           <div className="mt-5 flex gap-3">
-            <a href="#" aria-label="Facebook" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
+            <a href="#" aria-label="Maracatu Brasil no Facebook" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
               <Facebook size={16} />
             </a>
-            <a href="#" aria-label="Twitter" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
+            <a href="#" aria-label="Maracatu Brasil no Twitter" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
               <Twitter size={16} />
             </a>
-            <a href="#" aria-label="Instagram" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
+            <a href="#" aria-label="Maracatu Brasil no Instagram" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
               <Instagram size={16} />
             </a>
-            <a href="#" aria-label="Youtube" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
+            <a href="#" aria-label="Maracatu Brasil no YouTube" className="rounded-full bg-white/10 p-2 hover:bg-[color:var(--color-brand-green)] transition-colors">
               <Youtube size={16} />
             </a>
           </div>

@@ -21,16 +21,16 @@ export function SiteHeader() {
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden md:inline text-white/70">Siga-nos:</span>
-            <a href="#" aria-label="Facebook" className="hover:text-white">
+            <a href="#" aria-label="Maracatu Brasil no Facebook" className="hover:text-white">
               <Facebook size={14} />
             </a>
-            <a href="#" aria-label="Twitter" className="hover:text-white">
+            <a href="#" aria-label="Maracatu Brasil no Twitter" className="hover:text-white">
               <Twitter size={14} />
             </a>
-            <a href="#" aria-label="Instagram" className="hover:text-white">
+            <a href="#" aria-label="Maracatu Brasil no Instagram" className="hover:text-white">
               <Instagram size={14} />
             </a>
-            <a href="#" aria-label="Youtube" className="hover:text-white">
+            <a href="#" aria-label="Maracatu Brasil no YouTube" className="hover:text-white">
               <Youtube size={14} />
             </a>
           </div>
@@ -61,6 +61,7 @@ export function SiteHeader() {
               <input
                 type="search"
                 placeholder="Buscar artigos, benefícios, concursos..."
+                aria-label="Buscar artigos, benefícios, concursos e serviços"
                 className="ml-2 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
             </div>
