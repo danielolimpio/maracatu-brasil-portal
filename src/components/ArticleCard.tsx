@@ -27,7 +27,7 @@ export function ArticleCard({ article, variant = "default" }: Props) {
           <h3 className="text-xl md:text-2xl font-black leading-tight text-white drop-shadow group-hover:text-[color:var(--color-brand-green)] transition-colors">
             {article.title}
           </h3>
-          <div className="mt-3 flex items-center gap-3 text-xs text-white/80">
+          <div className="mt-3 flex items-center gap-3 text-xs text-white">
             <span className="flex items-center gap-1"><User size={12} />{article.author}</span>
             <span>·</span>
             <span>{article.date}</span>

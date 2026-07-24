@@ -3,7 +3,7 @@ import { categories } from "@/data/articles";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-16 bg-[color:var(--color-brand-ink)] text-white/80">
+    <footer className="mt-16 bg-[color:var(--color-brand-ink)] text-white">
       <div className="container-mb py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3 mb-4">
@@ -68,12 +68,12 @@ export function SiteFooter() {
           <p className="text-sm mb-3">Receba os melhores conteúdos direto no seu e-mail.</p>
           <form className="flex flex-col gap-2">
             <div className="flex items-center rounded-md bg-white/10 px-3 py-2">
-              <Mail size={16} className="text-white/60" />
+              <Mail size={16} className="text-white" />
               <input
                 type="email"
                 required
                 placeholder="Seu melhor e-mail"
-                className="ml-2 w-full bg-transparent text-sm text-white outline-none placeholder:text-white/50"
+                className="ml-2 w-full bg-transparent text-sm text-white outline-none placeholder:text-white/90"
               />
             </div>
             <button
@@ -86,8 +86,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-mb flex flex-col md:flex-row items-center justify-between gap-2 py-5 text-xs text-white/60">
+        <div className="border-t border-white/10">
+        <div className="container-mb flex flex-col md:flex-row items-center justify-between gap-2 py-5 text-xs text-white">
           <div>
             © {new Date().getFullYear()} Maracatu Brasil. Todos os direitos reservados.
           </div>

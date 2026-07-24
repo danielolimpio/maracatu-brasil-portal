@@ -9,7 +9,7 @@ export function SiteHeader() {
   return (
     <header className="w-full">
       {/* Top bar */}
-      <div className="bg-[color:var(--color-brand-ink)] text-white/90 text-xs">
+      <div className="bg-[color:var(--color-brand-ink)] text-white text-xs">
         <div className="container-mb flex items-center justify-between py-2">
           <div className="hidden sm:block">
             {new Date().toLocaleDateString("pt-BR", {
@@ -20,7 +20,7 @@ export function SiteHeader() {
             })}
           </div>
           <div className="flex items-center gap-3">
-            <span className="hidden md:inline text-white/70">Siga-nos:</span>
+            <span className="hidden md:inline text-white">Siga-nos:</span>
             <a href="#" aria-label="Maracatu Brasil no Facebook" className="hover:text-white">
               <Facebook size={14} />
             </a>
