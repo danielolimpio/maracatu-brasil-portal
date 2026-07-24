@@ -1,0 +1,19 @@
+# Maracatu Brasil
+
+> Portal brasileiro de notícias, guias e glossário sobre benefícios sociais, direitos, impostos, trabalho, bancos e finanças para o cidadão.
+
+Maracatu Brasil é um portal de conteúdo independente que publica notícias, explicações práticas e um glossário completo sobre os principais temas do Brasil: Bolsa Família, INSS, FGTS, Imposto de Renda, Pix, concursos públicos, direitos trabalhistas, investimentos e serviços públicos. O objetivo é transformar linguagem burocrática em informação clara, confiável e acessível para ajudar o brasileiro a entender e exercer seus direitos.
+
+## Pages
+
+- [Início](/): Página principal com as últimas notícias, destaques por categoria, vídeos e os conteúdos mais lidos.
+- [Glossário](/glossario): Central de conhecimento com mais de 90 verbetes explicando termos de benefícios, impostos, trabalho, bancos e finanças.
+- [O que é Bolsa Família](/glossario/o-que-e-bolsa-familia): Definição completa do programa de transferência de renda, regras, calendário e direitos.
+- [O que é INSS](/glossario/o-que-e-inss): Explicação sobre o Instituto Nacional do Seguro Social, aposentadorias e benefícios previdenciários.
+- [O que é FGTS](/glossario/o-que-e-fgts): Guia sobre o Fundo de Garantia do Tempo de Serviço, saque-aniversário e multa rescisória.
+- [O que é Imposto de Renda](/glossario/o-que-e-imposto-de-renda): Resumo das regras, faixas de isenção, deduções e como declarar.
+- [O que é Pix](/glossario/o-que-e-pix): Tudo sobre o sistema de pagamentos instantâneos do Banco Central.
+
+## Optional
+
+- [Sitemap](/sitemap.xml): Índice XML com todas as URLs públicas do portal.
