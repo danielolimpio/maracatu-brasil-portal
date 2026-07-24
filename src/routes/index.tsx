@@ -67,7 +67,7 @@ function HomePage() {
       <SiteHeader />
       <main>
         {/* Breaking / Featured News strip */}
-        <section className="border-b border-border bg-muted/50">
+        <section className="border-b border-border bg-card">
           <div className="container-mb flex flex-col md:flex-row items-stretch gap-4 py-4">
             <div className="flex items-center gap-2 rounded-md bg-[color:var(--color-brand-green)] px-4 py-2 text-white">
               <TrendingUp size={16} />
@@ -132,10 +132,10 @@ function HomePage() {
                   <h2 className="text-2xl md:text-4xl font-black leading-tight text-white drop-shadow">
                     {heroMain.title}
                   </h2>
-                  <p className="mt-3 text-sm text-white/85 line-clamp-2 max-w-2xl">
+                  <p className="mt-3 text-sm text-white line-clamp-2 max-w-2xl">
                     {heroMain.excerpt}
                   </p>
-                  <div className="mt-4 flex items-center gap-3 text-xs text-white/80">
+                  <div className="mt-4 flex items-center gap-3 text-xs text-white">
                     <span>Por {heroMain.author}</span>
                     <span>·</span>
                     <span>{heroMain.date}</span>
@@ -261,7 +261,7 @@ function HomePage() {
 
               <div className="mt-6 rounded-lg bg-[color:var(--color-brand-blue)] p-5 text-white">
                 <h4 className="text-lg font-black">Siga o Maracatu Brasil</h4>
-                <p className="mt-1 text-sm text-white/85">
+                <p className="mt-1 text-sm text-white">
                   Acompanhe nas redes sociais para receber alertas dos benefícios.
                 </p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm font-bold">
@@ -347,7 +347,7 @@ function HomePage() {
               <h2 className="text-xl font-black uppercase tracking-wider text-white">
                 Últimos vídeos
               </h2>
-              <a href="#" className="text-xs font-bold uppercase text-white/80 hover:text-white">
+              <a href="#" className="text-xs font-bold uppercase text-white hover:text-white/90">
                 Ver todos <ChevronRight size={14} className="inline" />
               </a>
             </div>
@@ -364,7 +364,7 @@ function HomePage() {
                   </div>
                   <div className="p-4 text-white">
                     <h4 className="text-base font-bold leading-snug line-clamp-2">{a.title}</h4>
-                    <div className="mt-2 text-xs text-white/80">{a.author} · {a.date}</div>
+                    <div className="mt-2 text-xs text-white">{a.author} · {a.date}</div>
                   </div>
                 </a>
               ))}
@@ -450,7 +450,7 @@ function HomePage() {
             <h2 className="text-3xl md:text-4xl font-black text-white">
               Inscreva-se na nossa newsletter
             </h2>
-            <p className="mt-2 text-white/90 max-w-xl mx-auto">
+            <p className="mt-2 text-white max-w-xl mx-auto">
               Receba semanalmente as principais notícias sobre benefícios, direitos e economia
               direto no seu e-mail. Grátis, sem spam.
             </p>

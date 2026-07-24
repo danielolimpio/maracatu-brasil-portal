@@ -172,7 +172,7 @@ function TermPage() {
       <SiteHeader />
 
       {/* Breadcrumb */}
-      <nav aria-label="Trilha de navegação" className="border-b border-border bg-muted/30">
+      <nav aria-label="Trilha de navegação" className="border-b border-border bg-muted">
         <div className="container-mb py-3 text-xs">
           <ol className="flex items-center gap-1.5 text-muted-foreground flex-wrap">
             <li><Link to="/" className="inline-flex items-center gap-1 hover:text-foreground"><Home size={12} /> Início</Link></li>
@@ -248,7 +248,7 @@ function TermPage() {
             {/* Quick Summary */}
             <section id="quick-summary" className="mb-10 scroll-mt-24">
               <div className="rounded-2xl bg-gradient-to-br from-[color:var(--color-brand-blue)] to-[color:var(--color-brand-blue-dark)] p-6 text-white">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white/80">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
                   <Lightbulb size={14} /> Resumo rápido
                 </div>
                 <p className="mt-2 text-lg leading-relaxed">
@@ -260,7 +260,7 @@ function TermPage() {
             {/* Practical Example */}
             <section id="example" className="mb-10 scroll-mt-24">
               <h2 className="text-2xl font-black">Exemplo prático</h2>
-              <blockquote className="mt-3 rounded-xl border border-border bg-muted/40 p-6 text-base italic leading-relaxed">
+              <blockquote className="mt-3 rounded-xl border border-border bg-muted p-6 text-base italic leading-relaxed">
                 “{g.practicalExample}”
               </blockquote>
             </section>
@@ -428,7 +428,7 @@ function TermPage() {
             )}
 
             {/* Footer meta */}
-            <footer className="mt-12 rounded-xl bg-muted/40 p-5 text-sm text-muted-foreground">
+            <footer className="mt-12 rounded-xl bg-muted p-5 text-sm text-muted-foreground">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>Atualizado em <strong className="text-foreground">{g.lastUpdated}</strong> por <strong className="text-foreground">{g.author}</strong>.</div>
                 <Link to="/glossario" className="font-bold text-[color:var(--color-brand-green)]">

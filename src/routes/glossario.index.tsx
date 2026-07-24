@@ -125,7 +125,7 @@ function GlossaryHub() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-brand-green)] via-[color:var(--color-brand-green-dark)] to-[color:var(--color-brand-blue-dark)] text-white">
         <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_20%_10%,white_1px,transparent_1px),radial-gradient(circle_at_80%_80%,white_1px,transparent_1px)] [background-size:36px_36px]" aria-hidden />
         <div className="container-mb relative py-14 md:py-20">
-          <nav aria-label="Trilha de navegação" className="mb-4 text-sm text-white/80">
+          <nav aria-label="Trilha de navegação" className="mb-4 text-sm text-white">
             <ol className="flex items-center gap-2">
               <li><Link to="/" className="inline-flex items-center gap-1 hover:text-white"><Home size={14} /> Início</Link></li>
               <li aria-hidden><ChevronRight size={14} /></li>
@@ -139,7 +139,7 @@ function GlossaryHub() {
             <h1 className="mt-4 text-4xl md:text-6xl font-black leading-tight tracking-tight">
               Glossário <span className="text-[color:var(--color-brand-gray)]">Maracatu Brasil</span>
             </h1>
-            <p className="glossary-hero-lead mt-4 text-lg md:text-xl text-white/90 max-w-2xl">
+            <p className="glossary-hero-lead mt-4 text-lg md:text-xl text-white max-w-2xl">
               Definições claras e confiáveis, em português, sobre benefícios, trabalho, impostos, bancos e finanças no Brasil — feitas para você entender seus direitos e tomar decisões melhores.
             </p>
 
@@ -159,7 +159,7 @@ function GlossaryHub() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
-              <span className="text-white/70 mr-1">Populares:</span>
+              <span className="text-white mr-1">Populares:</span>
               {popular.slice(0, 6).map((p) => (
                 <Link
                   key={p.slug}
@@ -366,7 +366,7 @@ function GlossaryHub() {
 
             <div className="mt-6 rounded-xl border border-border bg-gradient-to-br from-[color:var(--color-brand-blue)] to-[color:var(--color-brand-blue-dark)] p-6 text-white">
               <h3 className="text-lg font-black">Continue explorando</h3>
-              <p className="mt-2 text-sm text-white/85">
+              <p className="mt-2 text-sm text-white">
                 Confira guias completos sobre benefícios, impostos e direitos no Brasil.
               </p>
               <Link
