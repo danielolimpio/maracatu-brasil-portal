@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { articles, categories } from "@/data/articles";
 import { glossaryTerms, glossaryUrl } from "@/data/glossary";
+import { posts } from "@/data/posts";
 
 const BASE_URL = "https://maracatu-brasil-portal.lovable.app";
 
@@ -27,13 +28,19 @@ export const Route = createFileRoute("/sitemap.xml")({
           changefreq: "weekly" as const,
           priority: "0.7",
         }));
+        const postPaths = posts.map((p) => ({
+          path: `/${p.categorySlug}/${p.slug}`,
+          changefreq: "weekly" as const,
+          priority: "0.9",
+        }));
         const glossaryPaths = glossaryTerms.map((g) => ({
           path: glossaryUrl(g.slug),
           changefreq: "monthly" as const,
           priority: "0.75",
         }));
 
-        const entries = [...staticPaths, ...catPaths, ...articlePaths, ...glossaryPaths];
+        const entries = [...staticPaths, ...catPaths, ...postPaths,
+          ...articlePaths, ...glossaryPaths];
 
         const urls = entries.map(
           (e) =>
