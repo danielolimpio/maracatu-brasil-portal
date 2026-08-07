@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GlossarioIndexRouteImport } from './routes/glossario.index'
+import { Route as TrabalhoPisPasep2026AbonoSalarialRouteImport } from './routes/trabalho.pis-pasep-2026-abono-salarial'
 import { Route as GlossarioOQueEChar123termChar125RouteImport } from './routes/glossario.o-que-e-{$term}'
+import { Route as BeneficiosCalendarioBolsaFamilia2026RouteImport } from './routes/beneficios.calendario-bolsa-familia-2026'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -29,49 +31,83 @@ const GlossarioIndexRoute = GlossarioIndexRouteImport.update({
   path: '/glossario/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrabalhoPisPasep2026AbonoSalarialRoute =
+  TrabalhoPisPasep2026AbonoSalarialRouteImport.update({
+    id: '/trabalho/pis-pasep-2026-abono-salarial',
+    path: '/trabalho/pis-pasep-2026-abono-salarial',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GlossarioOQueEChar123termChar125Route =
   GlossarioOQueEChar123termChar125RouteImport.update({
     id: '/glossario/o-que-e-{$term}',
     path: '/glossario/o-que-e-{$term}',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BeneficiosCalendarioBolsaFamilia2026Route =
+  BeneficiosCalendarioBolsaFamilia2026RouteImport.update({
+    id: '/beneficios/calendario-bolsa-familia-2026',
+    path: '/beneficios/calendario-bolsa-familia-2026',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario': typeof GlossarioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/glossario/o-que-e-{$term}' | '/glossario/'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/beneficios/calendario-bolsa-familia-2026'
+    | '/glossario/o-que-e-{$term}'
+    | '/trabalho/pis-pasep-2026-abono-salarial'
+    | '/glossario/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/glossario/o-que-e-{$term}' | '/glossario'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/beneficios/calendario-bolsa-familia-2026'
+    | '/glossario/o-que-e-{$term}'
+    | '/trabalho/pis-pasep-2026-abono-salarial'
+    | '/glossario'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/beneficios/calendario-bolsa-familia-2026'
     | '/glossario/o-que-e-{$term}'
+    | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BeneficiosCalendarioBolsaFamilia2026Route: typeof BeneficiosCalendarioBolsaFamilia2026Route
   GlossarioOQueEChar123termChar125Route: typeof GlossarioOQueEChar123termChar125Route
+  TrabalhoPisPasep2026AbonoSalarialRoute: typeof TrabalhoPisPasep2026AbonoSalarialRoute
   GlossarioIndexRoute: typeof GlossarioIndexRoute
 }
 
@@ -98,11 +134,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossarioIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trabalho/pis-pasep-2026-abono-salarial': {
+      id: '/trabalho/pis-pasep-2026-abono-salarial'
+      path: '/trabalho/pis-pasep-2026-abono-salarial'
+      fullPath: '/trabalho/pis-pasep-2026-abono-salarial'
+      preLoaderRoute: typeof TrabalhoPisPasep2026AbonoSalarialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/glossario/o-que-e-{$term}': {
       id: '/glossario/o-que-e-{$term}'
       path: '/glossario/o-que-e-{$term}'
       fullPath: '/glossario/o-que-e-{$term}'
       preLoaderRoute: typeof GlossarioOQueEChar123termChar125RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beneficios/calendario-bolsa-familia-2026': {
+      id: '/beneficios/calendario-bolsa-familia-2026'
+      path: '/beneficios/calendario-bolsa-familia-2026'
+      fullPath: '/beneficios/calendario-bolsa-familia-2026'
+      preLoaderRoute: typeof BeneficiosCalendarioBolsaFamilia2026RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -111,7 +161,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BeneficiosCalendarioBolsaFamilia2026Route:
+    BeneficiosCalendarioBolsaFamilia2026Route,
   GlossarioOQueEChar123termChar125Route: GlossarioOQueEChar123termChar125Route,
+  TrabalhoPisPasep2026AbonoSalarialRoute:
+    TrabalhoPisPasep2026AbonoSalarialRoute,
   GlossarioIndexRoute: GlossarioIndexRoute,
 }
 export const routeTree = rootRouteImport
