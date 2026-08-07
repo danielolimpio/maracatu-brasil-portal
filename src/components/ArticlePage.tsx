@@ -93,6 +93,7 @@ function BlockView({ b }: { b: Block }) {
         {b.cite && <cite className="mt-2 block text-sm not-italic text-muted-foreground">— {b.cite}</cite>}
       </blockquote>
     );
+  if (b.t !== "image") return null;
   return (
     <figure className="mt-8">
       <img src={b.src} alt={b.alt} loading="lazy" width={1280} height={853} className="w-full rounded-lg" />
@@ -103,7 +104,8 @@ function BlockView({ b }: { b: Block }) {
 
 export function ArticlePage({ post }: { post: Post }) {
   const toc = useMemo(
-    () => post.blocks.filter((b): b is Extract<Block, { t: "h2" }> => b.t === "h2"),
+    () =>
+      post.blocks.flatMap((b) => (b.t === "h2" ? [b.text] : [])),
     [post],
   );
   const related = articles.filter((a) => post.relatedArticles.includes(a.slug)).slice(0, 4);
@@ -145,16 +147,16 @@ export function ArticlePage({ post }: { post: Post }) {
               <h2 className="text-sm font-black uppercase tracking-widest text-foreground">Índice do artigo</h2>
               <ol className="mt-3 space-y-2">
                 {toc.map((h, i) => (
-                  <li key={h.text} className="text-sm">
-                    <a href={`#${slugify(h.text)}`} className="text-[color:var(--color-brand-blue)] hover:underline">
-                      {i + 1}. {h.text}
+                  <li key={h} className="text-sm">
+                    <a href={`#${slugify(h)}`} className="text-[color:var(--color-brand-blue)] hover:underline">
+                      {i + 1}. {h}
                     </a>
                   </li>
                 ))}
               </ol>
             </nav>
 
-            <div className="mt-6"><AdSlot size="leaderboard" /></div>
+            <div className="mt-6"><AdSlot label="Publicidade" height={120} /></div>
 
             {post.blocks.map((b, i) => (
               <BlockView key={i} b={b} />
@@ -230,7 +232,7 @@ export function ArticlePage({ post }: { post: Post }) {
           </article>
 
           <aside className="space-y-6">
-            <AdSlot size="rectangle" />
+            <AdSlot label="Publicidade" height={250} />
             <div className="rounded-lg border border-border bg-card p-5">
               <h2 className="text-sm font-black uppercase tracking-widest text-foreground">Mais lidas</h2>
               <div className="mt-4 space-y-4">
@@ -239,7 +241,7 @@ export function ArticlePage({ post }: { post: Post }) {
                 ))}
               </div>
             </div>
-            <AdSlot size="rectangle" />
+            <AdSlot label="Publicidade" height={250} />
           </aside>
         </div>
       </main>
