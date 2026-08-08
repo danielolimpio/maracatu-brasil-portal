@@ -749,6 +749,8 @@ export const posts: Post[] = [
       },
     ],
   },
+  impostoRenda2026,
+  aposentadoriaInss2026,
 ];
 
 export function getPostBySlug(slug: string) {
