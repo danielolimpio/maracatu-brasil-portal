@@ -1,3 +1,5 @@
+import { impostoRenda2026 } from "./post-imposto-renda-2026";
+import { aposentadoriaInss2026 } from "./post-aposentadoria-inss-2026";
 import bolsaCapa from "@/assets/bolsa-familia-2026-capa.jpg";
 import bolsaCorpo from "@/assets/bolsa-familia-2026-corpo.jpg";
 import pisCapa from "@/assets/pis-pasep-2026-capa.jpg";
