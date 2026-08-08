@@ -13,6 +13,8 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GlossarioIndexRouteImport } from './routes/glossario.index'
 import { Route as TrabalhoPisPasep2026AbonoSalarialRouteImport } from './routes/trabalho.pis-pasep-2026-abono-salarial'
+import { Route as PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport } from './routes/previdencia.aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+import { Route as ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRouteImport } from './routes/impostos.imposto-de-renda-2026-tabela-prazos-restituicao'
 import { Route as GlossarioOQueEChar123termChar125RouteImport } from './routes/glossario.o-que-e-{$term}'
 import { Route as BeneficiosCalendarioBolsaFamilia2026RouteImport } from './routes/beneficios.calendario-bolsa-familia-2026'
 
@@ -37,6 +39,18 @@ const TrabalhoPisPasep2026AbonoSalarialRoute =
     path: '/trabalho/pis-pasep-2026-abono-salarial',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute =
+  PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport.update({
+    id: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida',
+    path: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute =
+  ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRouteImport.update({
+    id: '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao',
+    path: '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GlossarioOQueEChar123termChar125Route =
   GlossarioOQueEChar123termChar125RouteImport.update({
     id: '/glossario/o-que-e-{$term}',
@@ -55,6 +69,8 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
+  '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
@@ -63,6 +79,8 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
+  '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario': typeof GlossarioIndexRoute
 }
@@ -72,6 +90,8 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
+  '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
+  '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
@@ -82,6 +102,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/glossario/o-que-e-{$term}'
+    | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+    | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario/'
   fileRoutesByTo: FileRoutesByTo
@@ -90,6 +112,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/glossario/o-que-e-{$term}'
+    | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+    | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario'
   id:
@@ -98,6 +122,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/glossario/o-que-e-{$term}'
+    | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+    | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario/'
   fileRoutesById: FileRoutesById
@@ -107,6 +133,8 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BeneficiosCalendarioBolsaFamilia2026Route: typeof BeneficiosCalendarioBolsaFamilia2026Route
   GlossarioOQueEChar123termChar125Route: typeof GlossarioOQueEChar123termChar125Route
+  ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute: typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
+  PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute: typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
   TrabalhoPisPasep2026AbonoSalarialRoute: typeof TrabalhoPisPasep2026AbonoSalarialRoute
   GlossarioIndexRoute: typeof GlossarioIndexRoute
 }
@@ -141,6 +169,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrabalhoPisPasep2026AbonoSalarialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': {
+      id: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+      path: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+      fullPath: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+      preLoaderRoute: typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': {
+      id: '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+      path: '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+      fullPath: '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
+      preLoaderRoute: typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/glossario/o-que-e-{$term}': {
       id: '/glossario/o-que-e-{$term}'
       path: '/glossario/o-que-e-{$term}'
@@ -164,6 +206,10 @@ const rootRouteChildren: RootRouteChildren = {
   BeneficiosCalendarioBolsaFamilia2026Route:
     BeneficiosCalendarioBolsaFamilia2026Route,
   GlossarioOQueEChar123termChar125Route: GlossarioOQueEChar123termChar125Route,
+  ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute:
+    ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute,
+  PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute:
+    PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute,
   TrabalhoPisPasep2026AbonoSalarialRoute:
     TrabalhoPisPasep2026AbonoSalarialRoute,
   GlossarioIndexRoute: GlossarioIndexRoute,
