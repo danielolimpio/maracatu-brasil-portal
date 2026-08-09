@@ -16,7 +16,9 @@ import { Route as TrabalhoPisPasep2026AbonoSalarialRouteImport } from './routes/
 import { Route as PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport } from './routes/previdencia.aposentadoria-inss-2026-regras-tabela-prova-de-vida'
 import { Route as ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRouteImport } from './routes/impostos.imposto-de-renda-2026-tabela-prazos-restituicao'
 import { Route as GlossarioOQueEChar123termChar125RouteImport } from './routes/glossario.o-que-e-{$term}'
+import { Route as EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRouteImport } from './routes/empregos.seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
 import { Route as BeneficiosCalendarioBolsaFamilia2026RouteImport } from './routes/beneficios.calendario-bolsa-familia-2026'
+import { Route as BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRouteImport } from './routes/beneficios.bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -57,17 +59,31 @@ const GlossarioOQueEChar123termChar125Route =
     path: '/glossario/o-que-e-{$term}',
     getParentRoute: () => rootRouteImport,
   } as any)
+const EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute =
+  EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRouteImport.update({
+    id: '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor',
+    path: '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BeneficiosCalendarioBolsaFamilia2026Route =
   BeneficiosCalendarioBolsaFamilia2026RouteImport.update({
     id: '/beneficios/calendario-bolsa-familia-2026',
     path: '/beneficios/calendario-bolsa-familia-2026',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute =
+  BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRouteImport.update({
+    id: '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar',
+    path: '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar': typeof BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
+  '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
@@ -77,7 +93,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar': typeof BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
+  '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
@@ -88,7 +106,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar': typeof BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
+  '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
@@ -100,7 +120,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
     | '/beneficios/calendario-bolsa-familia-2026'
+    | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
@@ -110,7 +132,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/sitemap.xml'
+    | '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
     | '/beneficios/calendario-bolsa-familia-2026'
+    | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
@@ -120,7 +144,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
     | '/beneficios/calendario-bolsa-familia-2026'
+    | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
@@ -131,7 +157,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute: typeof BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute
   BeneficiosCalendarioBolsaFamilia2026Route: typeof BeneficiosCalendarioBolsaFamilia2026Route
+  EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute: typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
   GlossarioOQueEChar123termChar125Route: typeof GlossarioOQueEChar123termChar125Route
   ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute: typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute: typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
@@ -190,11 +218,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossarioOQueEChar123termChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': {
+      id: '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+      path: '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+      fullPath: '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+      preLoaderRoute: typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/beneficios/calendario-bolsa-familia-2026': {
       id: '/beneficios/calendario-bolsa-familia-2026'
       path: '/beneficios/calendario-bolsa-familia-2026'
       fullPath: '/beneficios/calendario-bolsa-familia-2026'
       preLoaderRoute: typeof BeneficiosCalendarioBolsaFamilia2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar': {
+      id: '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
+      path: '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
+      fullPath: '/beneficios/bpc-loas-2026-quem-tem-direito-valor-como-solicitar'
+      preLoaderRoute: typeof BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -203,8 +245,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute:
+    BeneficiosBpcLoas2026QuemTemDireitoValorComoSolicitarRoute,
   BeneficiosCalendarioBolsaFamilia2026Route:
     BeneficiosCalendarioBolsaFamilia2026Route,
+  EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute:
+    EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute,
   GlossarioOQueEChar123termChar125Route: GlossarioOQueEChar123termChar125Route,
   ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute:
     ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute,
@@ -217,13 +263,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
