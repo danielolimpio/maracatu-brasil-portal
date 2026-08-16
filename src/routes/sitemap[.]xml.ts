@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { articles, categories } from "@/data/articles";
+import { categories } from "@/data/articles";
 import { glossaryTerms, glossaryUrl } from "@/data/glossary";
 import { posts } from "@/data/posts";
 
@@ -23,11 +23,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           changefreq: "daily" as const,
           priority: "0.8",
         }));
-        const articlePaths = articles.map((a) => ({
-          path: `/${a.categorySlug}/${a.slug}`,
-          changefreq: "weekly" as const,
-          priority: "0.7",
-        }));
         const postPaths = posts.map((p) => ({
           path: `/${p.categorySlug}/${p.slug}`,
           changefreq: "weekly" as const,
@@ -39,8 +34,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           priority: "0.75",
         }));
 
-        const entries = [...staticPaths, ...catPaths, ...postPaths,
-          ...articlePaths, ...glossaryPaths];
+        const entries = [...staticPaths, ...catPaths, ...postPaths, ...glossaryPaths];
 
         const urls = entries.map(
           (e) =>
