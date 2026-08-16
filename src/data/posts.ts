@@ -2,6 +2,8 @@ import { impostoRenda2026 } from "./post-imposto-renda-2026";
 import { aposentadoriaInss2026 } from "./post-aposentadoria-inss-2026";
 import { seguroDesemprego2026 } from "./post-seguro-desemprego-2026";
 import { bpcLoas2026 } from "./post-bpc-loas-2026";
+import { fgtsSaqueAniversario2026 } from "./post-fgts-saque-aniversario-2026";
+import { minhaCasaMinhaVida2026 } from "./post-minha-casa-minha-vida-2026";
 import bolsaCapa from "@/assets/bolsa-familia-2026-capa.jpg";
 import bolsaCorpo from "@/assets/bolsa-familia-2026-corpo.jpg";
 import pisCapa from "@/assets/pis-pasep-2026-capa.jpg";
@@ -757,6 +759,8 @@ export const posts: Post[] = [
   aposentadoriaInss2026,
   seguroDesemprego2026,
   bpcLoas2026,
+  fgtsSaqueAniversario2026,
+  minhaCasaMinhaVida2026,
 ];
 
 export function getPostBySlug(slug: string) {

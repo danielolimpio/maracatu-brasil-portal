@@ -108,7 +108,18 @@ export function ArticlePage({ post }: { post: Post }) {
       post.blocks.flatMap((b) => (b.t === "h2" ? [b.text] : [])),
     [post],
   );
-  const related = articles.filter((a) => post.relatedArticles.includes(a.slug)).slice(0, 4);
+  const explicit = articles.filter((a) => post.relatedArticles.includes(a.slug));
+  const sameCategory = articles.filter(
+    (a) => a.categorySlug === post.categorySlug && a.slug !== post.slug,
+  );
+  const others = articles.filter((a) => a.slug !== post.slug);
+  const related = Array.from(
+    new Map(
+      [...explicit, ...sameCategory, ...others]
+        .filter((a) => a.slug !== post.slug)
+        .map((a) => [a.slug, a]),
+    ).values(),
+  ).slice(0, 4);
   const terms = glossaryTerms.filter((g) => post.relatedGlossary.includes(g.slug));
 
   return (
