@@ -13,9 +13,11 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GlossarioIndexRouteImport } from './routes/glossario.index'
 import { Route as TrabalhoPisPasep2026AbonoSalarialRouteImport } from './routes/trabalho.pis-pasep-2026-abono-salarial'
+import { Route as TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRouteImport } from './routes/trabalho.fgts-saque-aniversario-2026-tabela-calculo-prazos'
 import { Route as PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport } from './routes/previdencia.aposentadoria-inss-2026-regras-tabela-prova-de-vida'
 import { Route as ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRouteImport } from './routes/impostos.imposto-de-renda-2026-tabela-prazos-restituicao'
 import { Route as GlossarioOQueEChar123termChar125RouteImport } from './routes/glossario.o-que-e-{$term}'
+import { Route as FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRouteImport } from './routes/financas.minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
 import { Route as EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRouteImport } from './routes/empregos.seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as BeneficiosCalendarioBolsaFamilia2026RouteImport } from './routes/beneficios.calendario-bolsa-familia-2026'
@@ -42,6 +44,12 @@ const TrabalhoPisPasep2026AbonoSalarialRoute =
     path: '/trabalho/pis-pasep-2026-abono-salarial',
     getParentRoute: () => rootRouteImport,
   } as any)
+const TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute =
+  TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRouteImport.update({
+    id: '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos',
+    path: '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute =
   PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRouteImport.update({
     id: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida',
@@ -58,6 +66,12 @@ const GlossarioOQueEChar123termChar125Route =
   GlossarioOQueEChar123termChar125RouteImport.update({
     id: '/glossario/o-que-e-{$term}',
     path: '/glossario/o-que-e-{$term}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute =
+  FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRouteImport.update({
+    id: '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento',
+    path: '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento',
     getParentRoute: () => rootRouteImport,
   } as any)
 const EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute =
@@ -91,9 +105,11 @@ export interface FileRoutesByFullPath {
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
+  '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento': typeof FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
+  '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos': typeof TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
@@ -104,9 +120,11 @@ export interface FileRoutesByTo {
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
+  '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento': typeof FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
+  '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos': typeof TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario': typeof GlossarioIndexRoute
 }
@@ -118,9 +136,11 @@ export interface FileRoutesById {
   '/beneficios/calendario-bolsa-familia-2026': typeof BeneficiosCalendarioBolsaFamilia2026Route
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
+  '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento': typeof FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute
   '/glossario/o-que-e-{$term}': typeof GlossarioOQueEChar123termChar125Route
   '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao': typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
+  '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos': typeof TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute
   '/trabalho/pis-pasep-2026-abono-salarial': typeof TrabalhoPisPasep2026AbonoSalarialRoute
   '/glossario/': typeof GlossarioIndexRoute
 }
@@ -133,9 +153,11 @@ export interface FileRouteTypes {
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/categoria/$slug'
     | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+    | '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+    | '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario/'
   fileRoutesByTo: FileRoutesByTo
@@ -146,9 +168,11 @@ export interface FileRouteTypes {
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/categoria/$slug'
     | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+    | '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+    | '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario'
   id:
@@ -159,9 +183,11 @@ export interface FileRouteTypes {
     | '/beneficios/calendario-bolsa-familia-2026'
     | '/categoria/$slug'
     | '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor'
+    | '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
     | '/glossario/o-que-e-{$term}'
     | '/impostos/imposto-de-renda-2026-tabela-prazos-restituicao'
     | '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
+    | '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
     | '/trabalho/pis-pasep-2026-abono-salarial'
     | '/glossario/'
   fileRoutesById: FileRoutesById
@@ -173,9 +199,11 @@ export interface RootRouteChildren {
   BeneficiosCalendarioBolsaFamilia2026Route: typeof BeneficiosCalendarioBolsaFamilia2026Route
   CategoriaSlugRoute: typeof CategoriaSlugRoute
   EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute: typeof EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute
+  FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute: typeof FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute
   GlossarioOQueEChar123termChar125Route: typeof GlossarioOQueEChar123termChar125Route
   ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute: typeof ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute
   PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute: typeof PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute
+  TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute: typeof TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute
   TrabalhoPisPasep2026AbonoSalarialRoute: typeof TrabalhoPisPasep2026AbonoSalarialRoute
   GlossarioIndexRoute: typeof GlossarioIndexRoute
 }
@@ -210,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrabalhoPisPasep2026AbonoSalarialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos': {
+      id: '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
+      path: '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
+      fullPath: '/trabalho/fgts-saque-aniversario-2026-tabela-calculo-prazos'
+      preLoaderRoute: typeof TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida': {
       id: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
       path: '/previdencia/aposentadoria-inss-2026-regras-tabela-prova-de-vida'
@@ -229,6 +264,13 @@ declare module '@tanstack/react-router' {
       path: '/glossario/o-que-e-{$term}'
       fullPath: '/glossario/o-que-e-{$term}'
       preLoaderRoute: typeof GlossarioOQueEChar123termChar125RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento': {
+      id: '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
+      path: '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
+      fullPath: '/financas/minha-casa-minha-vida-2026-faixas-subsidio-financiamento'
+      preLoaderRoute: typeof FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/empregos/seguro-desemprego-2026-quem-tem-direito-parcelas-valor': {
@@ -272,11 +314,15 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriaSlugRoute: CategoriaSlugRoute,
   EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute:
     EmpregosSeguroDesemprego2026QuemTemDireitoParcelasValorRoute,
+  FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute:
+    FinancasMinhaCasaMinhaVida2026FaixasSubsidioFinanciamentoRoute,
   GlossarioOQueEChar123termChar125Route: GlossarioOQueEChar123termChar125Route,
   ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute:
     ImpostosImpostoDeRenda2026TabelaPrazosRestituicaoRoute,
   PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute:
     PrevidenciaAposentadoriaInss2026RegrasTabelaProvaDeVidaRoute,
+  TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute:
+    TrabalhoFgtsSaqueAniversario2026TabelaCalculoPrazosRoute,
   TrabalhoPisPasep2026AbonoSalarialRoute:
     TrabalhoPisPasep2026AbonoSalarialRoute,
   GlossarioIndexRoute: GlossarioIndexRoute,
