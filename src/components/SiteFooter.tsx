@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react";
 import { categories } from "@/data/articles";
+import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
