@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Search, Menu, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/data/articles";
+import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
