@@ -41,9 +41,13 @@ export function SiteHeader() {
       <div className="border-b border-border bg-background">
         <div className="container-mb flex items-center justify-between gap-6 py-5">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[color:var(--color-brand-green)] text-white font-black text-xl shadow-sm">
-              M
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="Logo Maracatu Brasil"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full shadow-sm"
+            />
             <div>
               <div className="text-2xl font-black leading-none tracking-tight">
                 <span className="text-[color:var(--color-brand-green)]">Maracatu</span>{" "}
