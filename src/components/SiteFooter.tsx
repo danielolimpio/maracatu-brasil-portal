@@ -7,9 +7,13 @@ export function SiteFooter() {
       <div className="container-mb py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[color:var(--color-brand-green)] text-white font-black text-xl">
-              M
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="Logo Maracatu Brasil"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full bg-white/5"
+            />
             <div className="text-xl font-black text-white">Maracatu Brasil</div>
           </div>
           <p className="text-sm leading-relaxed">
