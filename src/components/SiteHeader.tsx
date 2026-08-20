@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Search, Menu, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/data/articles";
+import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -41,9 +42,13 @@ export function SiteHeader() {
       <div className="border-b border-border bg-background">
         <div className="container-mb flex items-center justify-between gap-6 py-5">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[color:var(--color-brand-green)] text-white font-black text-xl shadow-sm">
-              M
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="Logo Maracatu Brasil"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full shadow-sm"
+            />
             <div>
               <div className="text-2xl font-black leading-none tracking-tight">
                 <span className="text-[color:var(--color-brand-green)]">Maracatu</span>{" "}
