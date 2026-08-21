@@ -198,7 +198,7 @@ function HomePage() {
             </div>
             <aside className="lg:col-span-4">
               <div className="section-title relative">
-                Assista agora
+                Em destaque
                 <span className="section-title-accent" />
               </div>
               <div className="space-y-4">
@@ -210,9 +210,6 @@ function HomePage() {
                   >
                     <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden rounded-md">
                       <img src={a.image} alt={a.title} loading="lazy" className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-                        <Play size={20} className="text-white fill-white" />
-                      </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-brand-blue)]">
@@ -279,15 +276,25 @@ function HomePage() {
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand-green)] text-white text-lg font-black">
                       {i + 1}
                     </div>
-                    <a href={`/${a.categorySlug}/${a.slug}`} className="group flex-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-brand-blue)]">
-                        {a.category}
-                      </span>
-                      <h4 className="mt-1 text-base font-bold leading-snug group-hover:text-[color:var(--color-brand-green)] transition-colors">
-                        {a.title}
-                      </h4>
-                      <div className="mt-1 text-xs text-muted-foreground">
-                        {a.author} · {a.date} · {a.readTime}
+                    <a href={`/${a.categorySlug}/${a.slug}`} className="group flex flex-1 gap-4">
+                      <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden rounded-md">
+                        <img
+                          src={a.image}
+                          alt={a.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-brand-blue)]">
+                          {a.category}
+                        </span>
+                        <h4 className="mt-1 text-base font-bold leading-snug group-hover:text-[color:var(--color-brand-green)] transition-colors">
+                          {a.title}
+                        </h4>
+                        <div className="mt-1 text-xs text-muted-foreground">
+                          {a.author} · {a.date} · {a.readTime}
+                        </div>
                       </div>
                     </a>
                   </li>
@@ -299,34 +306,29 @@ function HomePage() {
                 Recentes
                 <span className="section-title-accent" />
               </div>
-              {articles.slice(15, 20).map((a) => (
+              {articles.slice(0, 5).map((a) => (
                 <ArticleCard key={a.slug} article={a} variant="horizontal" />
               ))}
             </aside>
           </div>
         </section>
 
-        {/* Latest videos strip */}
+        {/* Novidades strip */}
         <section className="bg-[color:var(--color-brand-blue)] py-10">
           <div className="container-mb">
             <div className="flex items-center justify-between mb-6 border-b border-white/20 pb-3">
               <h2 className="text-xl font-black uppercase tracking-wider text-white">
-                Últimos vídeos
+                Novidades
               </h2>
-              <a href="#" className="text-xs font-bold uppercase text-white hover:text-white/90">
+              <a href="/artigos" className="text-xs font-bold uppercase text-white hover:text-white/90">
                 Ver todos <ChevronRight size={14} className="inline" />
               </a>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
               {latestVideos.map((a) => (
                 <a key={a.slug} href={`/${a.categorySlug}/${a.slug}`} className="group block overflow-hidden rounded-lg bg-white/10 card-hover">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[3/2] overflow-hidden">
                     <img src={a.image} alt={a.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-lg">
-                        <Play size={22} className="ml-1 text-[color:var(--color-brand-blue)] fill-current" />
-                      </div>
-                    </div>
                   </div>
                   <div className="p-4 text-white">
                     <h4 className="text-base font-bold leading-snug line-clamp-2">{a.title}</h4>

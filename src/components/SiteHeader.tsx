@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Search, Menu, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/articles";
-import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -50,7 +49,7 @@ export function SiteHeader() {
         <div className="container-mb flex items-center justify-between gap-6 py-5">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src={logoAsset.url}
+              src="/logo.png"
               alt="Logo Maracatu Brasil"
               width={48}
               height={48}

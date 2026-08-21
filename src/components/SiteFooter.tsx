@@ -1,6 +1,5 @@
 import { Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react";
 import { categories } from "@/data/articles";
-import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -9,7 +8,7 @@ export function SiteFooter() {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <img
-              src={logoAsset.url}
+              src="/logo.png"
               alt="Logo Maracatu Brasil"
               width={48}
               height={48}
