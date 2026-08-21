@@ -2,7 +2,6 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ArticleCard } from "@/components/ArticleCard";
-import { AdSlot } from "@/components/AdSlot";
 import { Home, ChevronRight } from "lucide-react";
 import { articlesByCategory, categories, getCategory } from "@/data/articles";
 
@@ -84,7 +83,6 @@ function CategoryPage() {
         </section>
 
         <div className="container-mb">
-          <AdSlot label="Publicidade — Topo da Categoria" height={100} />
         </div>
 
         <section className="container-mb py-8">
