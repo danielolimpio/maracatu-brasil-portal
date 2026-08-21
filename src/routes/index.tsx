@@ -107,43 +107,11 @@ function HomePage() {
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-12">
-            {/* Left main */}
-            <div className="lg:col-span-4">
-              <ArticleCard article={heroSecondary[0]} variant="overlay" />
+            {/* Carrossel de destaque */}
+            <div className="lg:col-span-9">
+              <HeroCarousel articles={[heroMain, ...heroSecondary]} />
             </div>
 
-            {/* Center big */}
-            <div className="lg:col-span-5">
-              <a
-                href={`/${heroMain.categorySlug}/${heroMain.slug}`}
-                className="group relative block h-full min-h-[500px] overflow-hidden rounded-lg card-hover hover:shadow-xl"
-              >
-                <img
-                  src={heroMain.image}
-                  alt={heroMain.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                <div className="relative flex h-full flex-col justify-end p-7 text-white min-h-[500px]">
-                  <span className="mb-3 inline-block w-fit rounded-sm bg-[color:var(--color-brand-blue)] px-3 py-1 text-[11px] font-black uppercase tracking-wider">
-                    {heroMain.category}
-                  </span>
-                  <h2 className="text-2xl md:text-4xl font-black leading-tight text-white drop-shadow">
-                    {heroMain.title}
-                  </h2>
-                  <p className="mt-3 text-sm text-white line-clamp-2 max-w-2xl">
-                    {heroMain.excerpt}
-                  </p>
-                  <div className="mt-4 flex items-center gap-3 text-xs text-white">
-                    <span>Por {heroMain.author}</span>
-                    <span>·</span>
-                    <span>{heroMain.date}</span>
-                    <span>·</span>
-                    <span>{heroMain.readTime}</span>
-                  </div>
-                </div>
-              </a>
-            </div>
 
             {/* Right list */}
             <div className="lg:col-span-3 space-y-4 rounded-lg border border-border bg-card p-4">
