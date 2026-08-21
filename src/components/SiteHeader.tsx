@@ -1,11 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { Search, Menu, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { categories } from "@/data/articles";
 import logoAsset from "@/assets/maracatu-brasil-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [today, setToday] = useState("");
+
+  useEffect(() => {
+    setToday(
+      new Date().toLocaleDateString("pt-BR", {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }),
+    );
+  }, []);
 
   return (
     <header className="w-full">
@@ -13,12 +25,7 @@ export function SiteHeader() {
       <div className="bg-[color:var(--color-brand-ink)] text-white text-xs">
         <div className="container-mb flex items-center justify-between py-2">
           <div className="hidden sm:block">
-            {new Date().toLocaleDateString("pt-BR", {
-              weekday: "long",
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-            })}
+            {today}
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden md:inline text-white">Siga-nos:</span>

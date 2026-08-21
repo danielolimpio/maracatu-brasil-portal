@@ -70,7 +70,7 @@ export function ArticleCard({ article, variant = "default" }: Props) {
         href={`/${article.categorySlug}/${article.slug}`}
         className="group block overflow-hidden rounded-lg border border-border bg-card card-hover hover:shadow-lg"
       >
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[3/2] overflow-hidden">
           <img
             src={article.image}
             alt={article.title}
