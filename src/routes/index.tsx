@@ -306,27 +306,22 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Latest videos strip */}
+        {/* Novidades strip */}
         <section className="bg-[color:var(--color-brand-blue)] py-10">
           <div className="container-mb">
             <div className="flex items-center justify-between mb-6 border-b border-white/20 pb-3">
               <h2 className="text-xl font-black uppercase tracking-wider text-white">
-                Últimos vídeos
+                Novidades
               </h2>
-              <a href="#" className="text-xs font-bold uppercase text-white hover:text-white/90">
+              <a href="/artigos" className="text-xs font-bold uppercase text-white hover:text-white/90">
                 Ver todos <ChevronRight size={14} className="inline" />
               </a>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
               {latestVideos.map((a) => (
                 <a key={a.slug} href={`/${a.categorySlug}/${a.slug}`} className="group block overflow-hidden rounded-lg bg-white/10 card-hover">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[3/2] overflow-hidden">
                     <img src={a.image} alt={a.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-lg">
-                        <Play size={22} className="ml-1 text-[color:var(--color-brand-blue)] fill-current" />
-                      </div>
-                    </div>
                   </div>
                   <div className="p-4 text-white">
                     <h4 className="text-base font-bold leading-snug line-clamp-2">{a.title}</h4>
