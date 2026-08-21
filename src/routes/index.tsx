@@ -198,7 +198,7 @@ function HomePage() {
             </div>
             <aside className="lg:col-span-4">
               <div className="section-title relative">
-                Assista agora
+                Em destaque
                 <span className="section-title-accent" />
               </div>
               <div className="space-y-4">
@@ -210,9 +210,6 @@ function HomePage() {
                   >
                     <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden rounded-md">
                       <img src={a.image} alt={a.title} loading="lazy" className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-                        <Play size={20} className="text-white fill-white" />
-                      </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-brand-blue)]">
