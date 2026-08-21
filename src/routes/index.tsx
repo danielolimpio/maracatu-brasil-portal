@@ -251,7 +251,7 @@ function HomePage() {
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {popularPosts.slice(0, 2).map((a) => (
-                <ArticleCard key={a.slug} article={a} variant="overlay" />
+                <ArticleCard key={a.slug} article={a} variant="large" />
               ))}
             </div>
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
