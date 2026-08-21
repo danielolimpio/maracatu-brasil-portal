@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { Clock, User, Calendar, Info, Lightbulb, AlertTriangle, ExternalLink, ChevronRight, Home, Tag } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { AdSlot } from "@/components/AdSlot";
 import { ArticleCard } from "@/components/ArticleCard";
 import type { Block, Post } from "@/data/posts";
 import { slugify } from "@/data/posts";
@@ -167,7 +166,6 @@ export function ArticlePage({ post }: { post: Post }) {
               </ol>
             </nav>
 
-            <div className="mt-6"><AdSlot label="Publicidade" height={120} /></div>
 
             {post.blocks.map((b, i) => (
               <BlockView key={i} b={b} />
@@ -243,7 +241,6 @@ export function ArticlePage({ post }: { post: Post }) {
           </article>
 
           <aside className="space-y-6">
-            <AdSlot label="Publicidade" height={250} />
             <div className="rounded-lg border border-border bg-card p-5">
               <h2 className="text-sm font-black uppercase tracking-widest text-foreground">Mais lidas</h2>
               <div className="mt-4 space-y-4">
@@ -252,7 +249,6 @@ export function ArticlePage({ post }: { post: Post }) {
                 ))}
               </div>
             </div>
-            <AdSlot label="Publicidade" height={250} />
           </aside>
         </div>
       </main>

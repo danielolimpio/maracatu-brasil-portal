@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ArticleCard } from "@/components/ArticleCard";
-import { AdSlot } from "@/components/AdSlot";
 import { ChevronRight, TrendingUp, Play, ArrowUp, Mail } from "lucide-react";
 import {
   articles,
@@ -169,7 +168,6 @@ function HomePage() {
         </section>
 
         <div className="container-mb">
-          <AdSlot label="Publicidade — Banner Superior" height={100} />
         </div>
 
         {/* Featured Stories categories */}
@@ -296,7 +294,6 @@ function HomePage() {
         </section>
 
         <div className="container-mb">
-          <AdSlot label="Publicidade — Banner Entre Artigos" height={120} />
         </div>
 
         {/* Latest Updates numbered */}
@@ -409,7 +406,6 @@ function HomePage() {
               </div>
             </div>
             <aside className="lg:col-span-4 space-y-6">
-              <AdSlot label="Publicidade — Lateral" height={280} />
               <div className="rounded-lg border border-border bg-card p-5">
                 <h4 className="text-sm font-black uppercase tracking-wider text-[color:var(--color-brand-green)] border-b border-border pb-2 mb-4">
                   Mais populares
