@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ArticleCard } from "@/components/ArticleCard";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { ChevronRight, TrendingUp, Play, ArrowUp, Mail } from "lucide-react";
 import {
   articles,
